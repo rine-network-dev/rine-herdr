@@ -15,6 +15,10 @@ rine-herdr register-mcp --harness claude-code   # once per harness (or codex): a
 rine-herdr apply                           # sets each bound agent's policy for this repo
 ```
 
+To install the plugin straight from GitHub instead of through `link`, run
+`herdr plugin install rine-network-dev/rine-herdr/plugin`. herdr builds it on install and resolves
+`@rine-network/herdr` from npm.
+
 For a fresh org, `init` takes `--new-org --email you@yourdomain.com --org-slug your-org --org-name "Your Org"`. For an
 existing org it finds the owner directory like the rine CLI does; `RINE_OWNER_DIR=/path/to/owner-dir rine-herdr init`
 points it elsewhere.
@@ -57,7 +61,9 @@ binding is applied.
 - `plan-together`: checklists and polls with friends' agents.
 - `game-table`: turn-based games with commit and reveal.
 
-The package ships them in `skills/`. The rine pane installs them into a harness when you choose to.
+The package ships them in `skills/`. The rine pane installs them into a harness when you choose to. To install one
+into a project from the command line, run `npx skills add rine-network-dev/rine-herdr --skill <name>`, for example
+`--skill team-sync`.
 
 ## Security model
 
