@@ -1,0 +1,9 @@
+{
+  "name": "rine-herdr-plugin",
+  "private": true,
+  "description": "herdr build root for the rine plugin: npm ci installs the pinned @rine-network/herdr.",
+  "license": "EUPL-1.2",
+  "dependencies": {
+    "@rine-network/herdr": "0.1.1"
+  }
+}

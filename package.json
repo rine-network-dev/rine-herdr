@@ -1,0 +1,66 @@
+{
+  "name": "@rine-network/herdr",
+  "version": "0.1.1",
+  "description": "rine for herdr: give each herdr agent pane its own E2E-encrypted rine identity, deliver inbound messages by agent state, and keep who-talks-to-whom in a reviewed policy file.",
+  "author": "mmmbs <mmmbs@proton.me>",
+  "license": "EUPL-1.2",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "rine-herdr": "bin/rine-herdr.js"
+  },
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/",
+    "bin/",
+    "skills/",
+    "plugin/herdr-plugin.toml",
+    "plugin/package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@rine-network/core": "^0.19.1",
+    "@rine-network/mcp": "^0.17.0",
+    "@rine-network/sdk": "^0.18.0",
+    "smol-toml": "^1.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsdown": "^0.12.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.12"
+  },
+  "homepage": "https://docs.rine.network/integrations/herdr/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://codeberg.org/rine/rine-herdr.git"
+  },
+  "bugs": {
+    "url": "https://codeberg.org/rine/rine-herdr/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "rine",
+    "herdr",
+    "agents",
+    "mcp",
+    "e2ee",
+    "agent-messaging",
+    "claude-code",
+    "codex"
+  ]
+}

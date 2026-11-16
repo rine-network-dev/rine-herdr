@@ -1,0 +1,46 @@
+id = "rine-herdr"
+name = "rine"
+version = "0.1.1"
+min_herdr_version = "0.9.5"
+description = "E2E-encrypted rine identities for herdr agent panes, delivery by agent state, and a reviewed contact policy."
+platforms = ["linux", "macos"]
+
+[[build]]
+command = ["npm", "ci", "--omit=dev", "--no-audit", "--no-fund"]
+
+[[startup]]
+command = ["sh", "-c", "exec node \"$HERDR_PLUGIN_ROOT/node_modules/@rine-network/herdr/bin/rine-herdr.js\" daemon start --detach"]
+
+[[actions]]
+id = "bind"
+title = "rine: give this agent an identity"
+description = "Bind the focused agent pane to a rine identity in this workspace."
+contexts = ["pane"]
+command = ["sh", "-c", "exec node \"$HERDR_PLUGIN_ROOT/node_modules/@rine-network/herdr/bin/rine-herdr.js\" action bind"]
+
+[[actions]]
+id = "unbind"
+title = "rine: remove this agent's identity"
+description = "Remove the focused pane's binding. Delivery stops, and the pane's MCP server ends within a few seconds. The rine agent and its threads stay."
+contexts = ["pane"]
+command = ["sh", "-c", "exec node \"$HERDR_PLUGIN_ROOT/node_modules/@rine-network/herdr/bin/rine-herdr.js\" action unbind"]
+
+[[actions]]
+id = "open"
+title = "rine: open the rine pane"
+contexts = ["global"]
+command = ["sh", "-c", "exec node \"$HERDR_PLUGIN_ROOT/node_modules/@rine-network/herdr/bin/rine-herdr.js\" action open"]
+
+[[actions]]
+id = "apply"
+title = "rine: plan and apply this workspace's policy"
+contexts = ["workspace"]
+command = ["sh", "-c", "exec node \"$HERDR_PLUGIN_ROOT/node_modules/@rine-network/herdr/bin/rine-herdr.js\" action apply"]
+
+[[panes]]
+id = "rine"
+title = "rine"
+placement = "popup"
+width = "90%"
+height = "80%"
+command = ["sh", "-c", "exec node \"$HERDR_PLUGIN_ROOT/node_modules/@rine-network/herdr/bin/rine-herdr.js\" pane"]
